@@ -136,7 +136,6 @@ class ChatGPTTelegramBot:
             + localized_text("help_text", bot_language)[2]
             + "\n\n"
             + localized_text("help_text", bot_language)[3]
-            + "\n\n"
         )
         await update.message.reply_text(help_text, disable_web_page_preview=True)
 
