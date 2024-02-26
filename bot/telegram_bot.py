@@ -38,11 +38,12 @@ class ChatGPTTelegramBot:
         self.config = config
         self.openai = openai
         bot_language = self.config['bot_language']
+        rtl_mark = '\u200F'
         self.commands = [
-            BotCommand(command='help', description=localized_text('help_description', bot_language)),
-            BotCommand(command='reset', description=localized_text('reset_description', bot_language)),
-            BotCommand(command='stats', description=localized_text('stats_description', bot_language)),
-            BotCommand(command='resend', description=localized_text('resend_description', bot_language))
+            BotCommand(command='help', description=localized_text(rtl_mark + 'help_description', bot_language)),
+            BotCommand(command='reset', description=localized_text(rtl_mark + 'reset_description', bot_language)),
+            BotCommand(command='stats', description=localized_text(rtl_mark + 'stats_description', bot_language)),
+            BotCommand(command='resend', description=localized_text(rtl_mark + 'resend_description', bot_language))
         ]
         # If imaging is enabled, add the "image" command to the list
         if self.config.get('enable_image_generation', False):
@@ -74,7 +75,7 @@ class ChatGPTTelegramBot:
         help_text = (
                 rtl_mark + localized_text('help_text', bot_language)[0] +
                 '\n\n' +
-                rtl_mark +'\n'.join(commands_description) +
+                '\n'.join(commands_description) +
                 '\n\n' +
                 rtl_mark + localized_text('help_text', bot_language)[1] +
                 '\n\n' +
