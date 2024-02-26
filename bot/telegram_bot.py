@@ -76,7 +76,7 @@ class ChatGPTTelegramBot:
                 '\n\n' +
                 localized_text('help_text', bot_language)[2]
         )
-        await update.message.reply_text(help_text, disable_web_page_preview=False)
+        await update.message.reply_text(help_text, disable_web_page_preview=True)
 
     async def stats(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
         """
