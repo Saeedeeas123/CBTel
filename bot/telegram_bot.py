@@ -74,7 +74,7 @@ class ChatGPTTelegramBot:
         help_text = (
                 rtl_mark + localized_text('help_text', bot_language)[0] +
                 '\n\n' +
-                '\n'.join(commands_description) +
+                rtl_mark +'\n'.join(commands_description) +
                 '\n\n' +
                 rtl_mark + localized_text('help_text', bot_language)[1] +
                 '\n\n' +
