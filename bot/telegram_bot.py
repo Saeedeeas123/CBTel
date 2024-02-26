@@ -40,11 +40,11 @@ class ChatGPTTelegramBot:
         bot_language = self.config['bot_language']
         rtl_mark = '\u200F'
         self.commands = [
-            BotCommand(command='help', description= rtl_mark +localized_text('help_description', bot_language)),
-            BotCommand(command='reset', description= rtl_mark +localized_text('reset_description', bot_language)),
-            BotCommand(command='stats', description= rtl_mark + localized_text('stats_description', bot_language)),
-            BotCommand(command='resend', description= rtl_mark +localized_text('resend_description', bot_language)),
-            BotCommand(command='fortune', description= rtl_mark +localized_text('fortune_description', bot_language))
+            BotCommand(command='help', description= localized_text('help_description', bot_language)),
+            BotCommand(command='reset', description= localized_text('reset_description', bot_language)),
+            BotCommand(command='stats', description= localized_text('stats_description', bot_language)),
+            BotCommand(command='resend', description= localized_text('resend_description', bot_language)),
+            BotCommand(command='fortune', description= localized_text('fortune_description', bot_language))
 
         ]
         # If imaging is enabled, add the "image" command to the list
@@ -76,11 +76,11 @@ class ChatGPTTelegramBot:
         
         help_text = (
                 rtl_mark + localized_text('help_text', bot_language)[0] +
-                '\n\n' +
-                '\n'.join(commands_description) +
-                '\n\n' +
+                rtl_mark +'\n\n' +
+                rtl_mark +'\n'.join(commands_description) +
+                rtl_mark +'\n\n' +
                 rtl_mark + localized_text('help_text', bot_language)[1] +
-                '\n\n' +
+                rtl_mark +'\n\n' +
                 rtl_mark + localized_text('help_text', bot_language)[2]
         )
         await update.message.reply_text(help_text, disable_web_page_preview=True)
