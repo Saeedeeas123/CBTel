@@ -38,7 +38,6 @@ class ChatGPTTelegramBot:
         self.config = config
         self.openai = openai
         bot_language = self.config['bot_language']
-        rtl_mark = '\u200F'
         self.commands = [
             BotCommand(command='help', description= localized_text('help_description', bot_language)),
             BotCommand(command='reset', description= localized_text('reset_description', bot_language)),
@@ -70,20 +69,18 @@ class ChatGPTTelegramBot:
         commands = self.group_commands if is_group_chat(update) else self.commands
         commands_description = [f'/{command.command} - {command.description}' for command in commands]
         bot_language = self.config['bot_language']
-        
-         # Retrieve RTL control character
-        rtl_mark = '\u200F'
-        
+         # Retrieve RTL control character  
+        rtl_mark = '\u200F'     
         help_text = (
-                rtl_mark + localized_text('help_text', bot_language)[0] +
-                rtl_mark +'\n\n' +
-                rtl_mark +'\n'.join(commands_description) +
-                rtl_mark +'\n\n' +
-                rtl_mark + localized_text('help_text', bot_language)[1] +
-                rtl_mark +'\n\n' +
-                rtl_mark + localized_text('help_text', bot_language)[2]
+                localized_text('help_text', bot_language)[0] +
+                '\n\n' +
+                '\n'.join(commands_description) +
+                '\n\n' +
+                localized_text('help_text', bot_language)[1] +
+                '\n\n' +
+                localized_text('help_text', bot_language)[2]
         )
-        await update.message.reply_text(help_text, disable_web_page_preview=True)
+        await update.message.reply_text(rtl_mark + help_text, disable_web_page_preview=True)
 
     async def stats(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
         """
