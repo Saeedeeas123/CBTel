@@ -9,6 +9,7 @@
         "chat_description": "Chat with the bot!",
         "disallowed": "Sorry, you are not allowed to use this bot. You can check out the source code at https://github.com/n3d1117/chatgpt-telegram-bot",
         "budget_limit": "Sorry, you have reached your usage limit.",
+        "fortune_description": "Your fortune",
         "help_text": [
             "I'm a ChatGPT bot, talk to me!",
             "Send me a voice message or file and I'll transcribe it for you",
@@ -803,7 +804,7 @@
         "resend_description": "آخرین پیام را دوباره ارسال کنید",
         "chat_description": "چت با ربات!",
         "disallowed": "شما قادر به استفاده از بات نیستید، این می تواند به دلیل عدم داشتن اعتبار کافی یا عدم استفاده منصفانه باشد، لطفا با پشتیبانی هماهنگ کنید",
-        "fortune_description": "گرفتن فال روزانه بر اساس طبع و ماه تولد شما",
+        "fortune_description": "فال حکیم",
         "budget_limit": "شما به حد مجاز مصرف خود رسیده اید، لطفا برای ادامه استفاده از بات و حمایت تولید کنندگان این بات کاربردی، اقدام به شارژ نمایید",
         "help_text": [
             "🧙‍♂️ سلام به بات حکیم خوش آمدید",
