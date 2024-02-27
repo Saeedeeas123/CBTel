@@ -67,7 +67,7 @@ class ChatGPTTelegramBot:
         Shows the help menu.
         """
         commands = self.group_commands if is_group_chat(update) else self.commands
-        commands_description = [f'\u200F{command.command} - {command.description}' for command in commands]
+        commands_description = [f'\u200F/{command.command} - {command.description}' for command in commands]
         bot_language = self.config['bot_language']
         
         # Retrieve RTL control character   
