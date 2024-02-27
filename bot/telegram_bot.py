@@ -67,11 +67,12 @@ class ChatGPTTelegramBot:
         Shows the help menu.
         """
         commands = self.group_commands if is_group_chat(update) else self.commands
-        commands_description = [f'/{command.command} - {command.description}' for command in commands]
+        commands_description = [f'/{command.command} - {command.description}\u200F' for command in commands]
         bot_language = self.config['bot_language']
-         # Retrieve RTL control character  
-        rtl_mark = '\u200F'     
-        help_text = rtl_mark + (
+        
+        # Retrieve RTL control character   
+           
+        help_text =(
                 localized_text('help_text', bot_language)[0] +
                 '\n\n' +
                 '\n'.join(commands_description) +
