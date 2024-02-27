@@ -71,10 +71,10 @@ class ChatGPTTelegramBot:
         bot_language = self.config['bot_language']
          # Retrieve RTL control character  
         rtl_mark = '\u200F'     
-        help_text = (
+        help_text = rtl_mark + (
                 localized_text('help_text', bot_language)[0] +
                 '\n\n' +
-                '\n'.join(rtl_mark + commands_description) +
+                '\n'.join(commands_description) +
                 '\n\n' +
                 localized_text('help_text', bot_language)[1] +
                 '\n\n' +
