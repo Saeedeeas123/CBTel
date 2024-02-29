@@ -22,7 +22,7 @@ from plugin_manager import PluginManager
 
 # Models can be found here: https://platform.openai.com/docs/models/overview
 GPT_3_MODELS = ("gpt-3.5-turbo", "gpt-3.5-turbo-0301", "gpt-3.5-turbo-0613")
-GPT_3_16K_MODELS = ("gpt-3.5-turbo-16k", "gpt-3.5-turbo-16k-0613", "gpt-3.5-turbo-1106")
+GPT_3_16K_MODELS = ("gpt-3.5-turbo-16k", "gpt-3.5-turbo-16k-0613", "gpt-3.5-turbo-1106", "gpt-3.5-turbo-0125")
 GPT_4_MODELS = ("gpt-4", "gpt-4-0314", "gpt-4-0613")
 GPT_4_32K_MODELS = ("gpt-4-32k", "gpt-4-32k-0314", "gpt-4-32k-0613")
 GPT_4_VISION_MODELS = ("gpt-4-vision-preview",)
@@ -42,7 +42,7 @@ def default_max_tokens(model: str) -> int:
     elif model in GPT_4_MODELS:
         return base * 2
     elif model in GPT_3_16K_MODELS:    
-        if model == "gpt-3.5-turbo-1106":
+        if model == "gpt-3.5-turbo-0125":
             return 4096
         return base * 4
     elif model in GPT_4_32K_MODELS:
@@ -61,7 +61,7 @@ def are_functions_available(model: str) -> bool:
     if model in ("gpt-3.5-turbo-0301", "gpt-4-0314", "gpt-4-32k-0314"):
         return False
     # Stable models will be updated to support functions on June 27, 2023
-    if model in ("gpt-3.5-turbo", "gpt-3.5-turbo-1106", "gpt-4", "gpt-4-32k","gpt-4-1106-preview"):
+    if model in ("gpt-3.5-turbo", "gpt-3.5-turbo-1106", "gpt-3.5-turbo-0125	", "gpt-4", "gpt-4-32k","gpt-4-1106-preview"):
         return datetime.date.today() > datetime.date(2023, 6, 27)
     if model == 'gpt-4-vision-preview':
         return False
